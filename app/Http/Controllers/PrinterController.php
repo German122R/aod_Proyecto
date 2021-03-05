@@ -49,7 +49,7 @@ class PrinterController extends Controller
      */
     public function show(Printer $printer)
     {
-        //
+        return view('printers.show', compact('printer'));
     }
 
     /**

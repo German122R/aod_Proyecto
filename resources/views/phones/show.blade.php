@@ -5,22 +5,20 @@
 
 <div class="card">
 <div class="card-header">
+
 <div class="row">
 <div class="col-md-8">
-     <h2 class="card-title">Listado de celulares registrado en la base de datos</h2>
+     <div class="card-title">
+     <h class="badge bg-primary">Telefono:{{$phone->brand}} {{$phone->model}}</h></div>
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<a class="btn btn-primary" href="{{route('phones.create')}}"> +Nuevo</a>
-
+<a class="btn btn-primary" href="{{route('phones.index')}}">Regresar</a>
 </div>
 </div>
 </div>
 </div>
-
-
   <div class="card-body">
-
 <table class="table  table-striped">
 
 <thead>
@@ -34,31 +32,39 @@
 </thead>
 
 <tbody>
-@forelse ($phones as $phone)
+
 <tr>
 <td>
-<a class="btn btn-info btn- small" href="{{ route('phones.show', $phone->id) }}">
-<h4>{{$phone->brand}} {{$phone->model}}</h4></td>
-</a>
+
+
+<p>Imagen</p>
+
 <td>
 
 <p><b>Modelo:</b>{{$phone->brand}}</p>
 <p><b>Color:</b>{{$phone->color}}</p>
 <p><b>cuntos chips:</b>{{$phone->chip}}</p>
-<p><b>Numero de memorias:</b>{{$phone->memory}}</p>
+<p><p class="text-uppercase"><b class ="text-capitalize">Numero de memorias:</b>{{$phone->memory}}</p>
 
 </td>
 <td><p>{{ $phone->description}}</p></td>
-<td>ver|editar| eliminar</td>
-@empty
-<h1>La tabla no tiene datos</h1>
+
 </tr>
-@endforelse
+
 </tbody>
 </table>
+</div>
+<div class= "card-footer">
+<div class="col">
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<a class="btn btn-primary" href="{{route('phones.edit', $phone->id)}}">EDITAR</a>
+<a class="btn btn-danger" href="{{route('phones.destroy' , $phone->id)}}">ELIMINAR</a>
+</div>
+</div>
+</div>
    
   </div>
-</div>
+
 
 
 

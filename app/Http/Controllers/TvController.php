@@ -49,7 +49,7 @@ class TvController extends Controller
      */
     public function show(Tv $tv)
     {
-        //
+        return view('tvs.show', compact('tv'));
     }
 
     /**

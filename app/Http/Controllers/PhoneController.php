@@ -49,7 +49,7 @@ class PhoneController extends Controller
      */
     public function show(Phone $phone)
     {
-        //
+        return view('phones.show', compact('phone'));
     }
 
     /**

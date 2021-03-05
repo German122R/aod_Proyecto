@@ -49,7 +49,7 @@ class XboxController extends Controller
      */
     public function show(Xbox $xbox)
     {
-        //
+        return view('xboxes.show', compact('xbox'));
     }
 
     /**
