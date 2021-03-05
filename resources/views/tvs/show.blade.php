@@ -58,7 +58,11 @@
 <div class="col">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 <a class="btn btn-primary" href="{{route('tvs.edit', $tv->id)}}">EDITAR</a>
-<a class="btn btn-danger" href="{{route('tvs.destroy' , $tv->id)}}">ELIMINAR</a>
+<form action="{{route('tvs.destroy' , $tv->id)}}" method= "post">
+@csrf
+@method('DELETE')
+<input Class ="btn btn-danger" type="submit" value="ELIMINAR">
+</form>
 </div>
 </div>
 </div>

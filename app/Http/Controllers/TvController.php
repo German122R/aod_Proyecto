@@ -85,6 +85,7 @@ class TvController extends Controller
      */
     public function destroy(Tv $tv)
     {
-        //
+        $tv->delete();
+        return  redirect()->to(url('/tvs'));
     }
 }

@@ -85,6 +85,7 @@ class XboxController extends Controller
      */
     public function destroy(Xbox $xbox)
     {
-        //
+        $xbox->delete();
+        return  redirect()->to(url('/xboxes'));
     }
 }

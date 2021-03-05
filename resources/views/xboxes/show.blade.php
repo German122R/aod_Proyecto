@@ -58,7 +58,11 @@
 <div class="col">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 <a class="btn btn-primary" href="{{route('xboxes.edit', $xbox->id)}}">EDITAR</a>
-<a class="btn btn-danger" href="{{route('xboxes.destroy' , $xbox->id)}}">BORAR</a>
+<form action="{{route('xboxes.destroy' , $xbox->id)}}" method= "post">
+@csrf
+@method('DELETE')
+<input Class ="btn btn-danger" type="submit" value="ELIMINAR">
+</form>
 </div>
 </div>
 </div>

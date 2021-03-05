@@ -85,6 +85,7 @@ class PrinterController extends Controller
      */
     public function destroy(Printer $printer)
     {
-        //
+        $printer->delete();
+        return  redirect()->to(url('/printers'));
     }
 }

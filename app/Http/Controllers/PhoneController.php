@@ -85,6 +85,7 @@ class PhoneController extends Controller
      */
     public function destroy(Phone $phone)
     {
-        //
+        $phone->delete();
+        return  redirect()->to(url('/phones'));
     }
 }
