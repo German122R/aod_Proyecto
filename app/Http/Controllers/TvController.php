@@ -60,7 +60,7 @@ class TvController extends Controller
      */
     public function edit(Tv $tv)
     {
-        //
+        return view ('tvs.edit', compact('tv'));
     }
 
     /**
@@ -72,7 +72,9 @@ class TvController extends Controller
      */
     public function update(Request $request, Tv $tv)
     {
-        //
+        $dataTv = request()->except('_token');
+        $tv->update($dataTv);
+    return  redirect()->to(url('/tvs'));
     }
 
     /**

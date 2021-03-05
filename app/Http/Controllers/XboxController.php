@@ -60,7 +60,7 @@ class XboxController extends Controller
      */
     public function edit(Xbox $xbox)
     {
-        //
+        return view ('xboxes.edit', compact('xbox'));
     }
 
     /**
@@ -72,7 +72,9 @@ class XboxController extends Controller
      */
     public function update(Request $request, Xbox $xbox)
     {
-        //
+        $dataXbox = request()->except('_token');
+        $xbox->update($dataXbox);
+    return  redirect()->to(url('/xboxes'));
     }
 
     /**

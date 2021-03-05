@@ -2,58 +2,62 @@
 
 <div class="container">
 
-<h1>FORMULARIO PARA CREAR UN NUEVO REGISTRO</h1>
+<h1>FORMULARIO PARA CHECAR EL REGISTRO DE UNA IMPRESORA</h1>
 
 <form action="{{ route('printers.store')}}" method= "post">
 
 @csrf
-<div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Marca:</label>
-<input class="form-control" type="text" name="brand" id="" placeholder="Marca">
+<input class="form-control" type="text" name="brand" id="" placeholder="Marca" required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Modelo:</label>
-<input class="form-control"  type="text" name="model" id="" placeholder="Modelo">
+<input class="form-control"  type="text" name="model" id="" placeholder="Modelo"required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Color:</label>
-<input class="form-control"  type="text" name="color" id="" placeholder="Color">
+<input class="form-control"  type="text" name="color" id="" placeholder="Color" required>
 </div>
-<div>
-<label for="">asesorios que trae la impresora:</label>
-<input class="form-control"  type="text" name="accessories" id="" placeholder="asesorios que trae la impresora">
+
 </div>
-<div>
-<label for="">conectividad de la impresora:</label>
-<input class="form-control" type="text" name="connectivity" id="" placeholder="conectividad de la impresora">
+<br>
+
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Acesorios:</label>
+<input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios" required>
 </div>
-<div>
-<label for="">Color de la impresion:</label>
-<input class="form-control" type="text" name="printcolor" id="" placeholder="Color de la impresion">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero entradas de memoria:</label>
+<input class="form-control" type="number" name="memory" id="" placeholder="Numero de entradas de memoria" required>
 </div>
-<div>
-<label for="">Resolucion:</label>
-<input class="form-control" type="number" name="resolution" id="" placeholder="Resolucion">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de entradas de chips:</label>
+<input class="form-control" type="number" name="chip" id="" placeholder="Numero de entradas de chips" required>
 </div>
-<div>
-<label for="">Velocidad de la impresora:</label>
-<input class="form-control" type="number" name="speed" id="" placeholder="Velocidad de la impresora">
-<div>
-<label for="">Paginas por minuto:</label>
-<input class="form-control" type="number" name="pagesperminute" id="" placeholder="Paginas por minuto">
 </div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Color del protector:</label>
+<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
+</div>
+</div>
+<br>
 <div>
-<label for="">Numero de teclas de la impresora:</label>
-<input class="form-control" type="number" name="keys" id="" placeholder="Numero de teclas de la impresora">
-<div>
+<br>
 <label for="">Descripcion:</label>
 <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
 </div>
 <div>
 <label for="">Comentario: </label>
-<input class="form-control" type="text" name="comment" id="" placeholder="Comentario">
+<input class="form-control" type="text" name="comment" id="" placeholder="Comentario" required>
 </div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<input  class= "btn btn-info" type="reset" value="Restablecer">
 <input class="btn btn-primary" type="submit" value="Guardar">
-
+</div>
 </form>
 </div>

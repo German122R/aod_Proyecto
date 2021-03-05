@@ -7,46 +7,57 @@
 <form action="{{ route('tvs.store')}}" method= "post">
 
 @csrf
-<div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Marca:</label>
-<input class="form-control" type="text" name="brand" id="" placeholder="Marca">
+<input class="form-control" type="text" name="brand" id="" placeholder="Marca" required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Modelo:</label>
-<input class="form-control"  type="text" name="model" id="" placeholder="Modelo">
+<input class="form-control"  type="text" name="model" id="" placeholder="Modelo"required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Color:</label>
-<input class="form-control"  type="text" name="color" id="" placeholder="Color">
-<div>
+<input class="form-control"  type="text" name="color" id="" placeholder="Color" required>
+</div>
+
+</div>
+<br>
+
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Acesorios:</label>
-<input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios">
+<input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios" required>
 </div>
-<div>
-<label for="">Cuantas patas tiene la tele:</label>
-<input class="form-control" type="number" name="legs" id="" placeholder="Cuantas patas tiene la tele">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero entradas de memoria:</label>
+<input class="form-control" type="number" name="memory" id="" placeholder="Numero de entradas de memoria" required>
 </div>
-<div>
-<label for="">Numero de teclas que tiene la Tv:</label>
-<input class="form-control" type="number" name="keys" id="" placeholder="Numero de teclas que tiene la Tv">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de entradas de chips:</label>
+<input class="form-control" type="number" name="chip" id="" placeholder="Numero de entradas de chips" required>
 </div>
-<div>
-<label for="">Pulgadas:</label>
-<input class="form-control" type="number" name="inches" id="" placeholder="Pulgadas">
 </div>
-<div>
-<label for="">Numero de controles que trae la tv:</label>
-<input class="form-control" type="number" name="control" id="" placeholder="Numero de controles que trae la tv">
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Color del protector:</label>
+<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
 </div>
+</div>
+<br>
 <div>
+<br>
 <label for="">Descripcion:</label>
 <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
 </div>
 <div>
 <label for="">Comentario: </label>
-<input class="form-control" type="text" name="comment" id="" placeholder="Comentario">
+<input class="form-control" type="text" name="comment" id="" placeholder="Comentario" required>
 </div>
-<input class="btn btn-primary" type="submit" value="GUARDAR LOS DATOS">
-
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<input  class= "btn btn-info" type="reset" value="Restablecer">
+<input class="btn btn-primary" type="submit" value="Guardar">
+</div>
 </form>
 </div>

@@ -2,50 +2,62 @@
 
 <div class="container">
 
-<h1>FORMULARIO PARA CREAR UN NUEVO REGISTRO DE LOS XBOX</h1>
+<h1>FORMULARIO PARA CHECAR EL REGISTO DE LOS XBOX</h1>
 
 <form action="{{ route('xboxes.store')}}" method= "post">
 
 @csrf
-<div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Marca:</label>
-<input class="form-control" type="text" name="brand" id="" placeholder="Marca">
+<input class="form-control" type="text" name="brand" id="" placeholder="Marca" required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Modelo:</label>
-<input class="form-control"  type="text" name="model" id="" placeholder="Modelo">
+<input class="form-control"  type="text" name="model" id="" placeholder="Modelo"required>
 </div>
-<div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
 <label for="">Color:</label>
-<input class="form-control"  type="text" name="color" id="" placeholder="Color">
+<input class="form-control"  type="text" name="color" id="" placeholder="Color" required>
 </div>
-<div>
-<label for="">asesorios que trae el xbox:</label>
-<input class="form-control"  type="text" name="accessories" id="" placeholder="asesorios que trae el xbox">
+
 </div>
-<div>
-<label for="">generacion del xbox:</label>
-<input class="form-control" type="text" name="generation" id="" placeholder="generacion del xbox">
+<br>
+
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Acesorios:</label>
+<input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios" required>
 </div>
-<div>
-<label for="">Numero de controles que trae el xbox:</label>
-<input class="form-control" type="number" name="control" id="" placeholder="Numero de controles que trae el xbox">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero entradas de memoria:</label>
+<input class="form-control" type="number" name="memory" id="" placeholder="Numero de entradas de memoria" required>
 </div>
-<div>
-<label for="">Cuantos juegos trae el xbox:</label>
-<input class="form-control" type="number" name="games" id="" placeholder="Cuantos juegos trae el xbox">
-<div>
-<label for="">lanzamiento del xbox:</label>
-<input class="form-control" type="number" name="launch" id="" placeholder="Lanzamiento del xbox">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de entradas de chips:</label>
+<input class="form-control" type="number" name="chip" id="" placeholder="Numero de entradas de chips" required>
 </div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Color del protector:</label>
+<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
+</div>
+</div>
+<br>
+<div>
+<br>
 <label for="">Descripcion:</label>
 <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
 </div>
 <div>
 <label for="">Comentario: </label>
-<input class="form-control" type="text" name="comment" id="" placeholder="Comentario">
+<input class="form-control" type="text" name="comment" id="" placeholder="Comentario" required>
 </div>
-<input class="btn btn-primary" type="submit" value="Guardas los datos">
-
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<input  class= "btn btn-info" type="reset" value="Restablecer">
+<input class="btn btn-primary" type="submit" value="Guardar">
+</div>
 </form>
 </div>

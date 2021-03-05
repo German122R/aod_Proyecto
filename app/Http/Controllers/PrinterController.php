@@ -60,7 +60,7 @@ class PrinterController extends Controller
      */
     public function edit(Printer $printer)
     {
-        //
+        return view ('printers.edit', compact('printer'));
     }
 
     /**
@@ -72,7 +72,9 @@ class PrinterController extends Controller
      */
     public function update(Request $request, Printer $printer)
     {
-        //
+        $dataPrinter = request()->except('_token');
+        $printer->update($dataPrinter);
+    return  redirect()->to(url('/printers'));
     }
 
     /**

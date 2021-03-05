@@ -38,7 +38,7 @@ class PhoneController extends Controller
     {
         $phone = request()->except('_token');
         Phone::insert($phone);
-        return view('phones.index');
+        return redirect()->to(url('/phones'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PhoneController extends Controller
      */
     public function edit(Phone $phone)
     {
-        //
+        return view ('phones.edit', compact('phone'));
     }
 
     /**
@@ -72,7 +72,9 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
-        //
+        $dataPhone = request()->except('_token');
+        $phone->update($dataPhone);
+    return  redirect()->to(url('/phones'));
     }
 
     /**
