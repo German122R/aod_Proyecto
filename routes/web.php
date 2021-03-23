@@ -17,6 +17,11 @@ use App\Http\Controllers\XboxController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/exportPhonesToCSV', [PhoneController::class, 'exportPhonesToCSV' ])-> name('/exportPhonesToCSV');
+Route::get('/exportPrintersToCSV', [PrinterController::class, 'exportPrintersToCSV' ])-> name('/exportPrintersToCSV');
+Route::get('/exportTvsToCSV', [TvController::class, 'exportTvsToCSV' ])-> name('/exportTvsToCSV');
+Route::get('/exportXboxesToCSV', [XboxController::class, 'exportXboxesToCSV' ])-> name('/exportXboxesToCSV');
+
 
 Route::get('/', function () {
     return view('welcome');

@@ -88,4 +88,39 @@ class XboxController extends Controller
         $xbox->delete();
         return  redirect()->to(url('/xboxes'));
     }
+    public function exportXboxesToCSV(Request $request){
+        $fileName = 'xboxes.csv';
+        $xboxes = Xbox::all();
+    
+    
+        $headers = array(
+            "Content-type"          => "text/csv",
+            "Content-Disposition"   => "attachment; fileName=$fileName",
+            "Pragma"                => "no-cache",
+            "Cache-Control"         => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"               =>"0"
+    
+        );
+        $columns = array( 'Marca',  'Modelo',  'accessories',  'Color',  'Descripcion');
+    
+        $callback =function() use($xboxes, $columns){
+            $file = fopen( 'php://output',  'w');
+            fputcsv($file, $columns);
+    
+    
+            foreach ($xboxes as $xbox){
+            $row[ 'brand']         =  $xbox->brand;
+            $row[ 'model']         =  $xbox->model;
+            $row[ 'accessories']   =  $xbox->accessories;
+            $row[ 'color']         =  $xbox->color;
+            $row[ 'description']   =  $xbox->description;
+    
+            fputcsv($file, array($row['brand'],  $row[ 'model'], $row[ 'accessories'], $row[ 'color'], $row[ 'description'] ));
+        }
+    
+        fclose($file);
+    };
+    return response()->stream($callback, 200, $headers);
+    }
+    
 }

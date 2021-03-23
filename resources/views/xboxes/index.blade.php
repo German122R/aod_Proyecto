@@ -1,3 +1,11 @@
+
+@extends('layouts.dashboard')
+
+@section('content')
+
+
+
+
 <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
 
 <div class= "container"></div>
@@ -11,6 +19,7 @@
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<span onclick="exportXboxesToCSV(event.target)"  data-href= "/exportXboxesToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
 <a class="btn btn-primary" href="{{route('xboxes.create')}}"> +Nuevo</a>
 
 </div>
@@ -62,6 +71,13 @@
 </div>
 
 
+<script>
 
+function  exportXboxesToCSV(_this){
+  let _url = $(_this).data('href');
+  window.location.href = _url;
+}
+</script>
 
 </div>
+@endsection

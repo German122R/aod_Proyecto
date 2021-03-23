@@ -88,4 +88,40 @@ class TvController extends Controller
         $tv->delete();
         return  redirect()->to(url('/tvs'));
     }
-}
+    public function exportTvsToCSV(Request $request){
+        $fileName = 'tvs.csv';
+        $tvs = Tv::all();
+    
+    
+        $headers = array(
+            "Content-type"          => "text/csv",
+            "Content-Disposition"   => "attachment; fileName=$fileName",
+            "Pragma"                => "no-cache",
+            "Cache-Control"         => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"               =>"0"
+    
+        );
+        $columns = array( 'Marca',  'Modelo',  'accessories',  'Color',  'Descripcion');
+    
+        $callback =function() use($tvs, $columns){
+            $file = fopen( 'php://output',  'w');
+            fputcsv($file, $columns);
+    
+    
+            foreach ($tvs as $tv){
+            $row[ 'brand']         =  $tv->brand;
+            $row[ 'model']         =  $tv->model;
+            $row[ 'accessories']   =  $tv->accessories;
+            $row[ 'color']         =  $tv->color;
+            $row[ 'description']   =  $tv->description;
+    
+            fputcsv($file, array($row['brand'],  $row[ 'model'], $row[ 'accessories'], $row[ 'color'], $row[ 'description'] ));
+        }
+    
+        fclose($file);
+    };
+    return response()->stream($callback, 200, $headers);
+    }
+    
+    }
+

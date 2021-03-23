@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
+
+@extends('layouts.dashboard')
+
+@section('content')
+
+
 
 <div class= "container"></div>
 <br><br>
@@ -11,6 +16,7 @@
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<span onclick="exportTvsToCSV(event.target)"  data-href= "/exportTvsToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
 <a class="btn btn-primary" href="{{route('tvs.create')}}"> +Nuevo</a>
 
 </div>
@@ -61,7 +67,14 @@
   </div>
 </div>
 
+<script>
 
+function  exportTvsToCSV(_this){
+  let _url = $(_this).data('href');
+  window.location.href = _url;
+}
+</script>
 
 
 </div>
+@endsection

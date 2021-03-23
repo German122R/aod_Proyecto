@@ -88,4 +88,41 @@ class PrinterController extends Controller
         $printer->delete();
         return  redirect()->to(url('/printers'));
     }
-}
+
+    public function exportPrintersToCSV(Request $request){
+        $fileName = 'printers.csv';
+        $printers = Printer::all();
+    
+    
+        $headers = array(
+            "Content-type"          => "text/csv",
+            "Content-Disposition"   => "attachment; fileName=$fileName",
+            "Pragma"                => "no-cache",
+            "Cache-Control"         => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"               =>"0"
+    
+        );
+        $columns = array( 'Marca',  'Modelo',  'accessories',  'Color',  'Descripcion');
+    
+        $callback =function() use($printers, $columns){
+            $file = fopen( 'php://output',  'w');
+            fputcsv($file, $columns);
+    
+    
+            foreach ($printers as $printer){
+            $row[ 'brand']         =  $printer->brand;
+            $row[ 'model']         =  $printer->model;
+            $row[ 'accessories']   =  $printer->accessories;
+            $row[ 'color']         =  $printer->color;
+            $row[ 'description']   =  $printer->description;
+    
+            fputcsv($file, array($row['brand'],  $row[ 'model'], $row[ 'accessories'], $row[ 'color'], $row[ 'description'] ));
+        }
+    
+        fclose($file);
+    };
+    return response()->stream($callback, 200, $headers);
+    }
+    
+    }
+

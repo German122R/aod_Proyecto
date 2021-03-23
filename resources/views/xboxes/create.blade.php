@@ -1,3 +1,11 @@
+
+@extends('layouts.dashboard')
+
+@section('content')
+
+
+
+
 <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
 
 <div class="container">
@@ -61,3 +69,4 @@
 </div>
 </form>
 </div>
+@endsection

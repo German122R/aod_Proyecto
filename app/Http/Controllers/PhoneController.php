@@ -88,4 +88,42 @@ class PhoneController extends Controller
         $phone->delete();
         return  redirect()->to(url('/phones'));
     }
+
+
+
+public function exportPhonesToCSV(Request $request){
+    $fileName = 'phones.csv';
+    $phones = Phone::all();
+
+
+    $headers = array(
+        "Content-type"          => "text/csv",
+        "Content-Disposition"   => "attachment; fileName=$fileName",
+        "Pragma"                => "no-cache",
+        "Cache-Control"         => "must-revalidate, post-check=0, pre-check=0",
+        "Expires"               =>"0"
+
+    );
+    $columns = array( 'Marca',  'Modelo',  'accessories',  'Color',  'Descripcion');
+
+    $callback =function() use($phones, $columns){
+        $file = fopen( 'php://output',  'w');
+        fputcsv($file, $columns);
+
+
+        foreach ($phones as $phone){
+        $row[ 'brand']         =  $phone->brand;
+        $row[ 'model']         =  $phone->model;
+        $row[ 'accessories']   =  $phone->accessories;
+        $row[ 'color']         =  $phone->color;
+        $row[ 'description']   =  $phone->description;
+
+        fputcsv($file, array($row['brand'],  $row[ 'model'], $row[ 'accessories'], $row[ 'color'], $row[ 'description'] ));
+    }
+
+    fclose($file);
+};
+return response()->stream($callback, 200, $headers);
+}
+
 }

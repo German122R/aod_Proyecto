@@ -22,7 +22,7 @@ class CreateVehiclesTable extends Migration
             $table->string('carRegistration', 12)->nullable();
             $table->tinyInteger('numberOfDoors');
             $table->tinyInteger('numberOfSeats');
-            $table->tinyInteger('mileage');
+            $table->integer('mileage');
             $table->tinyInteger('cylinderCapacity');
             $table->text('description');
             $table->string('comment')->nullable();

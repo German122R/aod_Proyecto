@@ -12,20 +12,11 @@
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -97,10 +88,10 @@ to get the desired effect
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="{{url('/home')}}" class="brand-link">
+      <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">SISTEMA</span>
     </a>
 
     <!-- Sidebar -->
@@ -108,7 +99,7 @@ to get the desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
@@ -124,21 +115,39 @@ to get the desired effect
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                CORE
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                <a href="{{url ('/phones') }}" class="nav-link">
+                  <i class="far fa-phone nav-icon"></i>
+                  <p>CELULARES</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url ('/tvs') }}" class="nav-link">
+                  <i class="fas fa-tv nav-icon"></i>
+                  <p>TELEVISION</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url ('/xboxes') }}" class="nav-link">
+                  <i class="fas fa-xbox nav-icon"></i>
+                  <p>CONSOLAS XBOX</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url ('/printers') }}" class="nav-link">
+                  <i class="fas fa-hand-pointer nav-icon"></i>
+                  <p>IMPRESORAS</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <i class="fas fa-user-friends nav-icon"></i>
+                  <p>USUARIOS</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -149,7 +158,8 @@ to get the desired effect
               </li>
             </ul>
           </li>
-          
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

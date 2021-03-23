@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
+@extends('layouts.dashboard')
+
+@section('content')
+
+<!--<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}"> -->
 
 <div class= "container"></div>
 <br><br>
@@ -11,6 +15,7 @@
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<span onclick="exportPhonesToCSV(event.target)"  data-href= "/exportPhonesToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
 <a class="btn btn-primary" href="{{route('phones.create')}}"> +Nuevo</a>
 
 </div>
@@ -28,7 +33,7 @@
 <th>Phone</th>
     <th>Informacion</th>
     <th>Description</th>
-    <th>Acciones</th>
+   
 </tr>
    
 </thead>
@@ -49,7 +54,7 @@
 
 </td>
 <td><p>{{ $phone->description}}</p></td>
-<td>ver|editar| eliminar</td>
+
 @empty
 <h1>La tabla no tiene datos</h1>
 </tr>
@@ -60,7 +65,14 @@
   </div>
 </div>
 
-
-
-
 </div>
+
+
+<script>
+
+function  exportPhonesToCSV(_this){
+  let _url = $(_this).data('href');
+  window.location.href = _url;
+}
+</script>
+@endsection

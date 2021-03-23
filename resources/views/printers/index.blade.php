@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
+@extends('layouts.dashboard')
+
+@section('content')
+
+
+<!--<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}"> -->
 
 <div class= "container"></div>
 <br><br>
@@ -11,6 +16,7 @@
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<span onclick="exportPrintersToCSV(event.target)"  data-href= "/exportPrintersToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
 <a class="btn btn-primary" href="{{route('printers.create')}}"> +Nuevo</a>
 
 </div>
@@ -25,7 +31,7 @@
 
 <thead>
 <tr>
-<th>Phone</th>
+<th>Impresoras</th>
     <th>Informacion</th>
     <th>Description</th>
     <th>Acciones</th>
@@ -61,7 +67,14 @@
   </div>
 </div>
 
+<script>
 
+function  exportPrintersToCSV(_this){
+  let _url = $(_this).data('href');
+  window.location.href = _url;
+}
+</script>
 
 
 </div>
+@endsection
