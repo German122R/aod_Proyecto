@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <!-- CSS de DataTable -->
+  <link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.min.css')}}">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

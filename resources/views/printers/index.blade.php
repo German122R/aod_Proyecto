@@ -3,7 +3,6 @@
 @section('content')
 
 
-<!--<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}"> -->
 
 <div class= "container"></div>
 <br><br>
@@ -11,14 +10,19 @@
 <div class="card">
 <div class="card-header">
 <div class="row">
-<div class="col-md-8">
+<div class="col-md-1">
+<a class="btn btn-outline-info" href="{{route('printers.create')}}"><i class= "fas fa-plus-circle"></i></a>
+</div>
+<div class="col-md-7">
      <h2 class="card-title">Listado de celulares registrado en la base de datos</h2>
 </div>
 <div class="col-md-4">
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<span onclick="exportPrintersToCSV(event.target)"  data-href= "/exportPrintersToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
-<a class="btn btn-primary" href="{{route('printers.create')}}"> +Nuevo</a>
-
+<a class='btn btn-outline-info mr-2' href="{{url ('/printers/import')}}"><i class="fas fa-file-import"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/printers/chart')}}"><i class= "fas fa-border-all"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/printers/chart')}}"><i class= "fas fa-chart-bar"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/printers/exportToXlsx')}}"><i class="fas fa-file-excel"></i></a>
+<span onclick="exportPrintersToCSV(event.target)"  data-href= "/exportPrintersToCSV" id="export" class ="btn btn-outline-info"><i class="fas fa-file-csv"></i></span>
 </div>
 </div>
 </div>
@@ -27,7 +31,7 @@
 
   <div class="card-body">
 
-<table class="table  table-striped">
+<table id="example" class="table  table-striped">
 
 <thead>
 <tr>
@@ -40,7 +44,7 @@
 </thead>
 
 <tbody>
-@forelse ($printers as $printer)
+@forelse ($impresoras as $printer)
 <tr>
 <td>
 <a class="btn btn-info btn- small" href="{{ route('printers.show', $printer->id) }}">
@@ -66,6 +70,18 @@
    
   </div>
 </div>
+
+<!-- DataTables -->
+<script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+
+<!-- Aplicacion de DataTable -->
+
+<script> 
+$(function() {
+    $('#example').DataTable();
+} );
+</script>
 
 <script>
 

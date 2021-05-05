@@ -38,18 +38,24 @@
 <input class="form-control"  type="text" name="accessories"value="{{$tv -> accessories}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero entradas de memoria:</label>
-<input class="form-control" type="number" name="memory" value="{{$tv -> memory}}"required>
+<label for="">Numero de botones del control:</label>
+<input class="form-control" type="number" name="legs" value="{{$tv -> legs}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero de entradas de chips:</label>
-<input class="form-control" type="number" name="chip" value="{{$tv -> chip}}" required>
+<label for="">Numero de de entradas de HDMI :</label>
+<input class="form-control" type="number" name="keys" value="{{$tv -> keys}}" required>
 </div>
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" value="{{$tv -> protective}}" required>
+<label for="">Numero de antenas:</label>
+<input class="form-control" type="number" name="inches" value="{{$tv -> inches}}" required>
+</div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">numero de controles que trae la tele:</label>
+<input class="form-control" type="number" name="control" value="{{$tv -> control}}" required>
 </div>
 </div>
 <br>

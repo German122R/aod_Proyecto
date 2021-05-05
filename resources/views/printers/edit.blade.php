@@ -36,18 +36,34 @@
 <input class="form-control"  type="text" name="accessories"value="{{$printer -> accessories}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero entradas de memoria:</label>
-<input class="form-control" type="number" name="memory" value="{{$printer -> memory}}"required>
+<label for="">Numero entradas de entradas para USB:</label>
+<input class="form-control" type="number" name="connectivity" value="{{$printer -> connectivity}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero de entradas de chips:</label>
-<input class="form-control" type="number" name="chip" value="{{$printer -> chip}}" required>
+<label for="">Color de las tintas:</label>
+<input class="form-control" type="number" name="printcolor" value="{{$printer -> printcolor}}"required>
+</div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">numero de botones de la impresora:</label>
+<input class="form-control" type="number" name="resolution" value="{{$printer -> resolution}}" required>
 </div>
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" value="{{$printer -> protective}}" required>
+<label for="">numero de cables:</label>
+<input class="form-control" type="number" name="speed" value="{{$printer -> speed}}" required>
+</div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de hojas que saca la impresora por minuto:</label>
+<input class="form-control" type="number" name="pagesperminute" value="{{$printer -> pagesperminute}}" required>
+</div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de patas que tiene la impresora:</label>
+<input class="form-control" type="number" name="keys" value="{{$printer -> keys}}" required>
 </div>
 </div>
 <br>

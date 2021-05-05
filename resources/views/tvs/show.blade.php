@@ -49,8 +49,8 @@
 
 <p><b>Modelo:</b>{{$tv->brand}}</p>
 <p><b>Color:</b>{{$tv->color}}</p>
-<p><b>cuntos chips:</b>{{$tv->chip}}</p>
-<p><p class="text-uppercase"><b class ="text-capitalize">Numero de memorias:</b>{{$tv->memory}}</p>
+<p><b>cuntos controles:</b>{{$tv->legs}}</p>
+<p><p class="text-uppercase"><b class ="text-capitalize">Numero de teclas que tiene la consola:</b>{{$tv->keys}}</p>
 
 </td>
 <td><p>{{ $tv->description}}</p></td>

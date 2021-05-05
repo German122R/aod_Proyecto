@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Printer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Exports\PrinterExport;
+use App\Imports\PrintersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PrinterController extends Controller
 {
@@ -14,8 +18,8 @@ class PrinterController extends Controller
      */
     public function index()
     {
-        $printers = Printer:: all();
-        return view ('printers.index', compact('printers'));
+        $impresoras = Printer:: all();
+        return view ('printers.index', compact('impresoras'));
     }
 
     /**
@@ -38,7 +42,7 @@ class PrinterController extends Controller
     {
         $printer = request()->except('_token');
         Printer::insert($printer);
-        return view('printers.index');
+        return redirect()->to(url('/printers'));
     }
 
     /**
@@ -124,5 +128,39 @@ class PrinterController extends Controller
     return response()->stream($callback, 200, $headers);
     }
     
+    public function chart(){
+
+        $printers = Printer::select(\DB::raw("COUNT(*) as count"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(\DB::raw("Minute(created_at)"))
+        ->pluck('count');
+    
+        $printers2 = Printer::select(\DB::raw("COUNT(*) as count"))
+        ->whereBetween('pagesperminute', ([0, 10]))
+        ->groupBy(\DB::raw("pagesperminute"))
+        ->pluck('count');
+    
+    return view('printers.chart')
+    ->with('printers', $printers)
+    ->with('printers2', $printers2);
     }
+    public function cards(){
+        $printers = Printer:: all();
+        return view ('printers.cards', compact('printers'));
+    }
+    
+    public function exportToXlsx(){
+        return Excel::download(new PrinterExport,'printers.xlsx' );
+        }
+        
+        public function import(){
+            return view('printers.import' );
+            }
+        
+        public function importData(Request $request){
+            Excel::import(new PrintersImport, request()->file('excel'));
+            return redirect()->to(url('printers'));
+        }
+        
+        }
 

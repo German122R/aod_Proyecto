@@ -44,8 +44,8 @@
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
+<label for="">Numero de cargadores:</label>
+<input class="form-control" type="number" name="protective" id="" placeholder="Numero de cargadores" required>
 </div>
 </div>
 <br>

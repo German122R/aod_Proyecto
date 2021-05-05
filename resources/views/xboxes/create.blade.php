@@ -38,18 +38,24 @@
 <input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios" required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero entradas de memoria:</label>
-<input class="form-control" type="number" name="memory" id="" placeholder="Numero de entradas de memoria" required>
+<label for="">Numero de controles:</label>
+<input class="form-control" type="number" name="generation" id="" placeholder="Numero de controles" required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero de entradas de chips:</label>
-<input class="form-control" type="number" name="chip" id="" placeholder="Numero de entradas de chips" required>
+<label for="">Numero de botones de la consola:</label>
+<input class="form-control" type="number" name="control" id="" placeholder="Numero de botones de la consola" required>
 </div>
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
+<label for="">numero de juegos que trae la consola:</label>
+<input class="form-control" type="number" name="games" id="" placeholder="Numero de juegos que trae la consola" required>
+</div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">generacion:</label>
+<input class="form-control" type="number" name="launch" id="" placeholder="precio" required>
 </div>
 </div>
 <br>

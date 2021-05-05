@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Xbox;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Exports\XboxExport;
+use App\Imports\XboxesImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class XboxController extends Controller
 {
@@ -14,8 +19,8 @@ class XboxController extends Controller
      */
     public function index()
     {
-        $xboxes = Xbox:: all();
-        return view ('xboxes.index', compact('xboxes'));
+        $consolas = Xbox:: all();
+        return view ('xboxes.index', compact('consolas'));
     }
 
     /**
@@ -38,7 +43,7 @@ class XboxController extends Controller
     {
         $xbox = request()->except('_token');
         Xbox::insert($xbox);
-        return view('Xboxes.index');
+        return redirect()->to(url('/xboxes'));
     }
 
     /**
@@ -122,5 +127,39 @@ class XboxController extends Controller
     };
     return response()->stream($callback, 200, $headers);
     }
+    public function chart(){
+
+        $xboxes = Xbox::select(\DB::raw("COUNT(*) as count"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(\DB::raw("Minute(created_at)"))
+        ->pluck('count');
     
+        $xboxes2 = Xbox::select(\DB::raw("COUNT(*) as count"))
+        ->whereBetween('games', ([0, 10]))
+        ->groupBy(\DB::raw("games"))
+        ->pluck('count');
+    
+    return view('xboxes.chart')
+    ->with('xboxes', $xboxes)
+    ->with('xboxes2', $xboxes2);
+    }
+    public function cards(){
+        $xboxes = Xbox:: all();
+        return view ('xboxes.cards', compact('xboxes'));
+    }
+
+    public function exportToXlsx(){
+        return Excel::download(new XboxExport,'xboxes.xlsx' );
+        }
+
+          
+        public function import(){
+            return view('xboxes.import' );
+            }
+        
+        public function importData(Request $request){
+            Excel::import(new XboxesImport, request()->file('excel'));
+            return redirect()->to(url('xboxes'));
+        }
+        
 }

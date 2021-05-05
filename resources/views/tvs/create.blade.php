@@ -36,18 +36,24 @@
 <input class="form-control"  type="text" name="accessories" id="" placeholder="Acesorios" required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero entradas de memoria:</label>
-<input class="form-control" type="number" name="memory" id="" placeholder="Numero de entradas de memoria" required>
+<label for="">Numero de botones del control:</label>
+<input class="form-control" type="number" name="legs" id="" placeholder="Numero de botones del control" required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero de entradas de chips:</label>
-<input class="form-control" type="number" name="chip" id="" placeholder="Numero de entradas de chips" required>
+<label for="">Numero de entradas de HDMI:</label>
+<input class="form-control" type="number" name="keys" id="" placeholder="Numero de entradas de HDMI" required>
 </div>
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" id="" placeholder="Color del protector" required>
+<label for="">Numero de antenas:</label>
+<input class="form-control" type="number" name="inches" id="" placeholder="precio" required>
+</div>
+</div>
+<div class="row">
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">NUmero de controles que trae la tele:</label>
+<input class="form-control" type="number" name="control" id="" placeholder="control" required>
 </div>
 </div>
 <br>

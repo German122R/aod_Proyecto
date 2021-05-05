@@ -11,14 +11,19 @@
 <div class="card">
 <div class="card-header">
 <div class="row">
-<div class="col-md-8">
-     <h2 class="card-title">Listado de celulares registrado en la base de datos</h2>
+<div class="col-md-1">
+<a class="btn btn-outline-info" href="{{route('tvs.create')}}"><i class= "fas fa-plus-circle"></i></a>
+</div>
+<div class="col-md-7">
+     <h2 class="card-title">Listado de celulares registrado en la base de datos</b></h2>
 </div>
 <div class="col-md-4">
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<span onclick="exportTvsToCSV(event.target)"  data-href= "/exportTvsToCSV" id="export" class ="btn btn-info">Exportar a CSV<span>
-<a class="btn btn-primary" href="{{route('tvs.create')}}"> +Nuevo</a>
-
+<div class="d-grid gap-3 d-md-flex justify-content-md-end">
+<a class='btn btn-outline-info mr-2' href="{{url ('/tvs/import')}}"><i class="fas fa-file-import"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/tvs/chart')}}"><i class= "fas fa-border-all"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/tvs/chart')}}"><i class= "fas fa-chart-bar"></i></a>
+<a class="btn btn-outline-info mr-2" href="{{url('/tvs/exportToXlsx')}}"><i class="fas fa-file-excel"></i></a>
+<span onclick="exportTvsToCSV(event.target)"  data-href= "/exportTvsToCSV" id="export" class ="btn btn-outline-info"><i class="fas fa-file-csv"></i></span>
 </div>
 </div>
 </div>
@@ -27,7 +32,7 @@
 
   <div class="card-body">
 
-<table class="table  table-striped">
+<table id="example"  class="table  table-striped">
 
 <thead>
 <tr>
@@ -40,7 +45,7 @@
 </thead>
 
 <tbody>
-@forelse ($tvs as $tv)
+@forelse ($teles as $tv)
 <tr>
 <td>
 <a class="btn btn-info btn- small" href="{{ route('tvs.show', $tv->id) }}">
@@ -66,6 +71,18 @@
    
   </div>
 </div>
+
+<!-- DataTables -->
+<script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script>
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+
+<!-- Aplicacion de DataTable -->
+
+<script> 
+$(function() {
+    $('#example').DataTable();
+} );
+</script>
 
 <script>
 

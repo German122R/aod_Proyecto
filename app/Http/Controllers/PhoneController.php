@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Phone;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Exports\PhoneExport;
+use App\Imports\PhonesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PhoneController extends Controller
 {
@@ -124,6 +128,41 @@ public function exportPhonesToCSV(Request $request){
     fclose($file);
 };
 return response()->stream($callback, 200, $headers);
+}
+
+public function chart(){
+
+    $phones = Phone::select(\DB::raw("COUNT(*) as count"))
+    ->whereYear('created_at', date('Y'))
+    ->groupBy(\DB::raw("Day(created_at)"))
+    ->pluck('count');
+
+    $phones2 = Phone::select(\DB::raw("COUNT(*) as count"))
+    ->whereBetween('chip', ([0, 10]))
+    ->groupBy(\DB::raw("chip"))
+    ->pluck('count');
+
+return view('phones.chart')
+->with('phones', $phones)
+->with('phones2', $phones2);
+}
+
+public function cards(){
+    $phones = Phone:: all();
+    return view ('phones.cards', compact('phones'));
+}
+
+public function exportToXlsx(){
+return Excel::download(new PhoneExport,'phones.xlsx' );
+}
+
+public function import(){
+    return view('phones.import' );
+    }
+
+public function importData(Request $request){
+    Excel::import(new PhonesImport, request()->file('excel'));
+    return redirect()->to(url('phones'));
 }
 
 }

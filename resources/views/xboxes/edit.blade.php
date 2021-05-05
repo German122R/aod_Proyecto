@@ -39,18 +39,23 @@
 <input class="form-control"  type="text" name="accessories"value="{{$xbox -> accessories}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero entradas de memoria:</label>
-<input class="form-control" type="number" name="memory" value="{{$xbox -> memory}}"required>
+<label for="">Numero de controles:</label>
+<input class="form-control" type="number" name="generation" value="{{$xbox -> generation}}"required>
 </div>
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Numero de entradas de chips:</label>
-<input class="form-control" type="number" name="chip" value="{{$xbox -> chip}}" required>
+<label for="">Numero de botones de la consola:</label>
+<input class="form-control" type="number" name="control" value="{{$xbox -> control}}" required>
+</div>
+</div>
+<div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
+<label for="">Numero de juegos que trae la consola:</label>
+<input class="form-control" type="number" name="games" value="{{$xbox -> games}}" required>
 </div>
 </div>
 <div class="row">
 <div class =" col-xs-12 col-sm-4 col-md-4 col-xl-4">
-<label for="">Color del protector:</label>
-<input class="form-control" type="number" name="protective" value="{{$xbox -> protective}}" required>
+<label for="">generacion:</label>
+<input class="form-control" type="number" name="launch" value="{{$xbox -> launch}}" required>
 </div>
 </div>
 <br>

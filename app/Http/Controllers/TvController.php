@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Tv;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Exports\TvExport;
+use App\Imports\TvsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TvController extends Controller
 {
@@ -14,8 +18,8 @@ class TvController extends Controller
      */
     public function index()
     {
-        $tvs = Tv:: all();
-        return view ('tvs.index', compact('tvs'));
+        $teles = Tv:: all();
+        return view ('tvs.index', compact('teles'));
     }
 
     /**
@@ -38,7 +42,7 @@ class TvController extends Controller
     {
         $tv = request()->except('_token');
         Tv::insert($tv);
-        return view('tvs.index');
+        return redirect()->to(url('/tvs'));
     }
 
     /**
@@ -123,5 +127,40 @@ class TvController extends Controller
     return response()->stream($callback, 200, $headers);
     }
     
+    public function chart(){
+
+        $tvs = Tv::select(\DB::raw("COUNT(*) as count"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(\DB::raw("Day(created_at)"))
+        ->pluck('count');
+    
+        $tvs2 = Tv::select(\DB::raw("COUNT(*) as count"))
+        ->whereBetween('control', ([0, 10]))
+        ->groupBy(\DB::raw("control"))
+        ->pluck('count');
+    
+    return view('tvs.chart')
+    ->with('tvs', $tvs)
+    ->with('tvs2', $tvs2);
     }
+    
+    public function cards(){
+        $tvs = Tv:: all();
+        return view ('tvs.cards', compact('tvs'));
+    }
+    public function exportToXlsx(){
+        return Excel::download(new TvExport,'tvs.xlsx' );
+        }
+
+        public function import(){
+            return view('tvs.import' );
+            }
+        
+        public function importData(Request $request){
+            Excel::import(new TvsImport, request()->file('excel'));
+            return redirect()->to(url('tvs'));
+        }
+        
+        }
+    
 
