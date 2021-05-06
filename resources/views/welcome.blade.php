@@ -17,16 +17,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{asset('home/assets/vendor/aos/aos.css')}}" rel="stylesheet">
-  <link href="{{asset('home/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('home/asset/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-  <link href="{{asset('home/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-  <link href="{{asset('home/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-  <link href="{{asset('home/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-  <link href="{{asset('home/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/asset/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{asset('home/assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('homes/assets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Bethany - v4.1.0
@@ -50,10 +50,10 @@
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{url('login')}}">INGRESAR A REGISTRO</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
             <li><a class="nav-link scrollto" href="#about">About</a></li>
             <li><a class="nav-link scrollto" href="#services">Services</a></li>
-            <li><a class="nav-link scrollto" href="{{url('login')}}">INGRESAR</a></li>
             <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
            
             
@@ -472,16 +472,16 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('home/assets/vendor/aos/aos.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/purecounter/purecounter.js')}}"></script>
-  <script src="{{ asset('home/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{ asset('homes/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ asset('home/assets/js/main.js')}}"></script>
+  <script src="{{ asset('homes/assets/js/main.js')}}"></script>
 
 </body>
 
